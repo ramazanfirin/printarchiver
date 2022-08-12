@@ -1,0 +1,27 @@
+{
+    "printarchiverApp": {
+        "printJobPage" : {
+            "home": {
+                "title": "Print Job Pages",
+                "createLabel": "Create a new Print Job Page",
+                "createOrEditLabel": "Create or edit a Print Job Page"
+            },
+            "created": "A new Print Job Page is created with identifier {{ param }}",
+            "updated": "A Print Job Page is updated with identifier {{ param }}",
+            "deleted": "A Print Job Page is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Print Job Page {{ id }}?"
+            },
+            "detail": {
+                "title": "Print Job Page"
+            },
+            "pageName": "Page Name",
+            "pagePath": "Page Path",
+            "index": "Index",
+            "resultStatus": "Result Status",
+            "restrictedKeywords": "Restricted Keywords",
+            "processed": "Processed",
+            "job": "Job"
+        }
+    }
+}

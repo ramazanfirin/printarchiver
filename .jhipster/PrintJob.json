@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "printerJobLogId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "printDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "printerId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "documentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "clientMachine",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jobId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "archivePath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "processStatus",
+            "fieldType": "ProcessStatus",
+            "fieldValues": "NOT_CHECKED,CHECKED"
+        },
+        {
+            "fieldName": "resultStatus",
+            "fieldType": "ResultStatus",
+            "fieldValues": "SAFETY,NOT_SAFETY"
+        }
+    ],
+    "changelogDate": "20220811100326",
+    "entityTableName": "print_job",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

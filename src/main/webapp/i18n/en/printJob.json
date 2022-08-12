@@ -1,0 +1,30 @@
+{
+    "printarchiverApp": {
+        "printJob" : {
+            "home": {
+                "title": "Print Jobs",
+                "createLabel": "Create a new Print Job",
+                "createOrEditLabel": "Create or edit a Print Job"
+            },
+            "created": "A new Print Job is created with identifier {{ param }}",
+            "updated": "A Print Job is updated with identifier {{ param }}",
+            "deleted": "A Print Job is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Print Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Print Job"
+            },
+            "printerJobLogId": "Printer Job Log Id",
+            "printDate": "Print Date",
+            "userId": "User Id",
+            "printerId": "Printer Id",
+            "documentName": "Document Name",
+            "clientMachine": "Client Machine",
+            "jobId": "Job Id",
+            "archivePath": "Archive Path",
+            "processStatus": "Process Status",
+            "resultStatus": "Result Status"
+        }
+    }
+}

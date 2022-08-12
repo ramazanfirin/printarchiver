@@ -1,0 +1,44 @@
+entity PrintJob{
+	printerJobLogId Long
+	printDate LocalDate
+	userId Long
+	printerId Long
+	documentName String
+	clientMachine String
+	jobId String
+	archivePath String
+	processStatus ProcessStatus
+	resultStatus ResultStatus
+}
+
+entity PrintJobPage{
+	pageName String
+	pagePath String
+	index Long
+	resultStatus ResultStatus
+	restrictedKeywords String
+	processed Boolean
+}
+
+enum ProcessStatus {
+  NOT_CHECKED,
+  CHECKED
+}
+
+enum ResultStatus {
+  SAFETY,
+  NOT_SAFETY
+}
+
+entity RestrictedKeyword{
+	keyword String
+	active Boolean
+}
+
+relationship ManyToOne {
+	PrintJobPage{job} to PrintJob
+}
+
+paginate PrintJob with pagination
+paginate RestrictedKeyword with pagination
+paginate PrintJobPage with pagination

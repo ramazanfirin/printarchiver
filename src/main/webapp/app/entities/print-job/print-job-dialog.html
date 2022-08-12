@@ -1,0 +1,92 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPrintJobLabel" data-translate="printarchiverApp.printJob.home.createOrEditLabel">Create or edit a Print Job</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.printJob.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.printJob.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.printerJobLogId" for="field_printerJobLogId">Printer Job Log Id</label>
+            <input type="number" class="form-control" name="printerJobLogId" id="field_printerJobLogId"
+                    ng-model="vm.printJob.printerJobLogId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.printDate" for="field_printDate">Print Date</label>
+                <div class="input-group">
+                    <input id="field_printDate" type="text" class="form-control" name="printDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.printJob.printDate" is-open="vm.datePickerOpenStatus.printDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('printDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                    ng-model="vm.printJob.userId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.printerId" for="field_printerId">Printer Id</label>
+            <input type="number" class="form-control" name="printerId" id="field_printerId"
+                    ng-model="vm.printJob.printerId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.documentName" for="field_documentName">Document Name</label>
+            <input type="text" class="form-control" name="documentName" id="field_documentName"
+                    ng-model="vm.printJob.documentName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.clientMachine" for="field_clientMachine">Client Machine</label>
+            <input type="text" class="form-control" name="clientMachine" id="field_clientMachine"
+                    ng-model="vm.printJob.clientMachine"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.jobId" for="field_jobId">Job Id</label>
+            <input type="text" class="form-control" name="jobId" id="field_jobId"
+                    ng-model="vm.printJob.jobId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.archivePath" for="field_archivePath">Archive Path</label>
+            <input type="text" class="form-control" name="archivePath" id="field_archivePath"
+                    ng-model="vm.printJob.archivePath"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.processStatus" for="field_processStatus">Process Status</label>
+            <select class="form-control" name="processStatus" ng-model="vm.printJob.processStatus" id="field_processStatus">
+                <option value="NOT_CHECKED" data-translate="printarchiverApp.ProcessStatus.NOT_CHECKED">NOT_CHECKED</option>
+                <option value="CHECKED" data-translate="printarchiverApp.ProcessStatus.CHECKED">CHECKED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJob.resultStatus" for="field_resultStatus">Result Status</label>
+            <select class="form-control" name="resultStatus" ng-model="vm.printJob.resultStatus" id="field_resultStatus">
+                <option value="SAFETY" data-translate="printarchiverApp.ResultStatus.SAFETY">SAFETY</option>
+                <option value="NOT_SAFETY" data-translate="printarchiverApp.ResultStatus.NOT_SAFETY">NOT_SAFETY</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

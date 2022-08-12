@@ -1,0 +1,9 @@
+{
+    "printarchiverApp": {
+        "ResultStatus" : {
+            "null": "",
+            "SAFETY": "SAFETY",
+            "NOT_SAFETY": "NOT_SAFETY"
+        }
+    }
+}

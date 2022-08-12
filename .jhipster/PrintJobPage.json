@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "job",
+            "otherEntityName": "printJob",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "pageName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pagePath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "index",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "resultStatus",
+            "fieldType": "ResultStatus",
+            "fieldValues": "SAFETY,NOT_SAFETY"
+        },
+        {
+            "fieldName": "restrictedKeywords",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "processed",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20220811100327",
+    "entityTableName": "print_job_page",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

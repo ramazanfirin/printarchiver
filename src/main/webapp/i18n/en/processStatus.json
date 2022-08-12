@@ -1,0 +1,9 @@
+{
+    "printarchiverApp": {
+        "ProcessStatus" : {
+            "null": "",
+            "NOT_CHECKED": "NOT_CHECKED",
+            "CHECKED": "CHECKED"
+        }
+    }
+}

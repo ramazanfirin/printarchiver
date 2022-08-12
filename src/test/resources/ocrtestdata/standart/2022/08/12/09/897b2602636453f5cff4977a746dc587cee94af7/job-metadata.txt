@@ -1,0 +1,9 @@
+#Information about the print job archived in this directory.
+#Fri Aug 12 13:33:32 TRT 2022
+submit-time=12.A\u011Fu.2022 13\:33\:32
+copies=1
+page-height-mm=297
+printer=desktop-vu0hkaq\\Microsoft PS Class Driver
+total-pages=2
+page-width-mm=210
+user=ramazan

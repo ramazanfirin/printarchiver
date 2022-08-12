@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span data-translate="printarchiverApp.printJob.detail.title">Print Job</span> {{vm.printJob.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="printarchiverApp.printJob.printerJobLogId">Printer Job Log Id</span></dt>
+        <dd>
+            <span>{{vm.printJob.printerJobLogId}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.printDate">Print Date</span></dt>
+        <dd>
+            <span>{{vm.printJob.printDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.printJob.userId}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.printerId">Printer Id</span></dt>
+        <dd>
+            <span>{{vm.printJob.printerId}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.documentName">Document Name</span></dt>
+        <dd>
+            <span>{{vm.printJob.documentName}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.clientMachine">Client Machine</span></dt>
+        <dd>
+            <span>{{vm.printJob.clientMachine}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.jobId">Job Id</span></dt>
+        <dd>
+            <span>{{vm.printJob.jobId}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.archivePath">Archive Path</span></dt>
+        <dd>
+            <span>{{vm.printJob.archivePath}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.processStatus">Process Status</span></dt>
+        <dd>
+            <span data-translate="{{'printarchiverApp.ProcessStatus.' + vm.printJob.processStatus}}">{{vm.printJob.processStatus}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJob.resultStatus">Result Status</span></dt>
+        <dd>
+            <span data-translate="{{'printarchiverApp.ResultStatus.' + vm.printJob.resultStatus}}">{{vm.printJob.resultStatus}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="print-job-detail.edit({id:vm.printJob.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

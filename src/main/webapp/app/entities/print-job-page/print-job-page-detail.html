@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="printarchiverApp.printJobPage.detail.title">Print Job Page</span> {{vm.printJobPage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="printarchiverApp.printJobPage.pageName">Page Name</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.pageName}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.pagePath">Page Path</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.pagePath}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.index">Index</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.index}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.resultStatus">Result Status</span></dt>
+        <dd>
+            <span data-translate="{{'printarchiverApp.ResultStatus.' + vm.printJobPage.resultStatus}}">{{vm.printJobPage.resultStatus}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.restrictedKeywords">Restricted Keywords</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.restrictedKeywords}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.processed">Processed</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.processed}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.job">Job</span></dt>
+        <dd>
+            <a ui-sref="print-job-detail({id:vm.printJobPage.job.id})">{{vm.printJobPage.job.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="print-job-page-detail.edit({id:vm.printJobPage.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
