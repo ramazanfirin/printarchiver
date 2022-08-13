@@ -53,12 +53,17 @@ public class JobImportService {
 			printJob.setProcessStatus(ProcessStatus.NOT_CHECKED);
 			printJob.setUserId(getLong(object[3].toString()));
 			printJob.setPageCount(getLong(object[12].toString()));
-			
+			getUserNameAndPrinterName(printJob);
 			printJobRepository.save(printJob);
 		}
 		
 		System.out.println("sdfsd");
 		
+	}
+	
+	public void getUserNameAndPrinterName(PrintJob printJob) {
+		printJob.setUserName(printJobService.findUserName(printJob.getUserId())); 
+		printJob.setPrinterName(printJobService.findPrinterName(printJob.getPrinterId()));
 	}
 	
 	public LocalDate getDate(Object object) throws ParseException {

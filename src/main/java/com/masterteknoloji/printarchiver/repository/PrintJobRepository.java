@@ -21,6 +21,12 @@ public interface PrintJobRepository extends JpaRepository<PrintJob, Long> {
 	@Query(value = "SELECT * FROM papercut.tbl_printer_usage_log where printer_usage_log_id> :start", nativeQuery = true)
 	List findJobs(@Param("start") int start);
 	
+	@Query(value = "SELECT user_name FROM papercut.tbl_user where user_id = :userId", nativeQuery = true)
+	List findUserName(@Param("userId") Long userId);
+	
+	@Query(value = "SELECT printer_name FROM papercut.tbl_printer where printerId = :printerId", nativeQuery = true)
+	List findPrinterName(@Param("printerId") Long printerId);
+	
 	@Query(value = "SELECT p FROM PrintJob p where p.printerJobLogId = :jobId")
 	List<PrintJob> findByJobId(@Param("jobId") Long jobId);
 	

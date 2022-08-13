@@ -2,6 +2,7 @@ package com.masterteknoloji.printarchiver.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
 import java.math.BigInteger;
@@ -58,6 +59,8 @@ public class ImportServiceIntTest {
     final BigInteger User_ID = new BigInteger("10");
     final BigInteger PAGE_COUNT = new BigInteger("2");
     
+    final String TEST_USER = "TEST_USER";
+    final String TEST_PRINTER = "TEST_PRINTER";
     
     private List prepareJobDummyData() {
     	jobList = new ArrayList();
@@ -81,6 +84,8 @@ public class ImportServiceIntTest {
     @Before
     public void init() {
     	when(printJobService.findJobs(anyInt())).thenReturn(prepareJobDummyData());
+    	when(printJobService.findUserName(anyLong())).thenReturn(TEST_USER);
+    	when(printJobService.findPrinterName(anyLong())).thenReturn(TEST_PRINTER);
     	jobImportService = new JobImportService(printJobRepository,printJobService);
     	//printJobRepository.deleteAll();
     	
@@ -103,6 +108,8 @@ public class ImportServiceIntTest {
     	assertThat(printJob.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJob.getUserId().longValue()).isEqualTo(User_ID.longValue());
     	assertThat(printJob.getPageCount().longValue()).isEqualTo(PAGE_COUNT.longValue());
+    	assertThat(printJob.getUserName()).isEqualTo(TEST_USER);
+    	assertThat(printJob.getPrinterName()).isEqualTo(TEST_PRINTER);
     }
 
    

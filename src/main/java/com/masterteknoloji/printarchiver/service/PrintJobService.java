@@ -25,4 +25,26 @@ public class PrintJobService {
 	public List findJobs(Integer start) {
 		return printJobRepository.findJobs(start);
 	}
+	
+	public String findUserName(Long userId) {
+		String result = "";
+		List list = printJobRepository.findUserName(userId);
+		if(list!= null && list.size()>0) {
+			result = (String)list.get(0);
+		}
+		
+		
+		return result;
+	}
+	
+	public String findPrinterName(Long printerId) {
+		String result = "";
+		List list = printJobRepository.findPrinterName(printerId);
+		if(list!= null && list.size()>0) {
+			result = (String)list.get(0);
+		}
+		
+		
+		return result;
+	}
 }
