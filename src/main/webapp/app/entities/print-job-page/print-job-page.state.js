@@ -132,6 +132,8 @@
                                 resultStatus: null,
                                 restrictedKeywords: null,
                                 processed: null,
+                                fileName: null,
+                                exportPath: null,
                                 id: null
                             };
                         }

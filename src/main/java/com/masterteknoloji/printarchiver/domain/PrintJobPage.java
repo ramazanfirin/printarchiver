@@ -43,9 +43,15 @@ public class PrintJobPage implements Serializable {
     @Column(name = "processed")
     private Boolean processed;
 
+    @Column(name = "file_name")
+    private String fileName;
+
+    @Column(name = "export_path")
+    private String exportPath;
+    
     @Transient
     private String content;
-    
+
     @ManyToOne
     private PrintJob job;
 
@@ -136,6 +142,32 @@ public class PrintJobPage implements Serializable {
         this.processed = processed;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public PrintJobPage fileName(String fileName) {
+        this.fileName = fileName;
+        return this;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getExportPath() {
+        return exportPath;
+    }
+
+    public PrintJobPage exportPath(String exportPath) {
+        this.exportPath = exportPath;
+        return this;
+    }
+
+    public void setExportPath(String exportPath) {
+        this.exportPath = exportPath;
+    }
+
     public PrintJob getJob() {
         return job;
     }
@@ -180,6 +212,8 @@ public class PrintJobPage implements Serializable {
             ", resultStatus='" + getResultStatus() + "'" +
             ", restrictedKeywords='" + getRestrictedKeywords() + "'" +
             ", processed='" + isProcessed() + "'" +
+            ", fileName='" + getFileName() + "'" +
+            ", exportPath='" + getExportPath() + "'" +
             "}";
     }
 

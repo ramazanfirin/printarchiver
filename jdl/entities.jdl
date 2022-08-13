@@ -18,6 +18,8 @@ entity PrintJobPage{
 	resultStatus ResultStatus
 	restrictedKeywords String
 	processed Boolean
+	fileName String
+	exportPath String
 }
 
 enum ProcessStatus {

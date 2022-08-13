@@ -57,6 +57,12 @@ public class PrintJobPageResourceIntTest {
     private static final Boolean DEFAULT_PROCESSED = false;
     private static final Boolean UPDATED_PROCESSED = true;
 
+    private static final String DEFAULT_FILE_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_FILE_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EXPORT_PATH = "AAAAAAAAAA";
+    private static final String UPDATED_EXPORT_PATH = "BBBBBBBBBB";
+
     @Autowired
     private PrintJobPageRepository printJobPageRepository;
 
@@ -100,7 +106,9 @@ public class PrintJobPageResourceIntTest {
             .index(DEFAULT_INDEX)
             .resultStatus(DEFAULT_RESULT_STATUS)
             .restrictedKeywords(DEFAULT_RESTRICTED_KEYWORDS)
-            .processed(DEFAULT_PROCESSED);
+            .processed(DEFAULT_PROCESSED)
+            .fileName(DEFAULT_FILE_NAME)
+            .exportPath(DEFAULT_EXPORT_PATH);
         return printJobPage;
     }
 
@@ -130,6 +138,8 @@ public class PrintJobPageResourceIntTest {
         assertThat(testPrintJobPage.getResultStatus()).isEqualTo(DEFAULT_RESULT_STATUS);
         assertThat(testPrintJobPage.getRestrictedKeywords()).isEqualTo(DEFAULT_RESTRICTED_KEYWORDS);
         assertThat(testPrintJobPage.isProcessed()).isEqualTo(DEFAULT_PROCESSED);
+        assertThat(testPrintJobPage.getFileName()).isEqualTo(DEFAULT_FILE_NAME);
+        assertThat(testPrintJobPage.getExportPath()).isEqualTo(DEFAULT_EXPORT_PATH);
     }
 
     @Test
@@ -167,7 +177,9 @@ public class PrintJobPageResourceIntTest {
             .andExpect(jsonPath("$.[*].index").value(hasItem(DEFAULT_INDEX.intValue())))
             .andExpect(jsonPath("$.[*].resultStatus").value(hasItem(DEFAULT_RESULT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].restrictedKeywords").value(hasItem(DEFAULT_RESTRICTED_KEYWORDS.toString())))
-            .andExpect(jsonPath("$.[*].processed").value(hasItem(DEFAULT_PROCESSED.booleanValue())));
+            .andExpect(jsonPath("$.[*].processed").value(hasItem(DEFAULT_PROCESSED.booleanValue())))
+            .andExpect(jsonPath("$.[*].fileName").value(hasItem(DEFAULT_FILE_NAME.toString())))
+            .andExpect(jsonPath("$.[*].exportPath").value(hasItem(DEFAULT_EXPORT_PATH.toString())));
     }
 
     @Test
@@ -186,7 +198,9 @@ public class PrintJobPageResourceIntTest {
             .andExpect(jsonPath("$.index").value(DEFAULT_INDEX.intValue()))
             .andExpect(jsonPath("$.resultStatus").value(DEFAULT_RESULT_STATUS.toString()))
             .andExpect(jsonPath("$.restrictedKeywords").value(DEFAULT_RESTRICTED_KEYWORDS.toString()))
-            .andExpect(jsonPath("$.processed").value(DEFAULT_PROCESSED.booleanValue()));
+            .andExpect(jsonPath("$.processed").value(DEFAULT_PROCESSED.booleanValue()))
+            .andExpect(jsonPath("$.fileName").value(DEFAULT_FILE_NAME.toString()))
+            .andExpect(jsonPath("$.exportPath").value(DEFAULT_EXPORT_PATH.toString()));
     }
 
     @Test
@@ -214,7 +228,9 @@ public class PrintJobPageResourceIntTest {
             .index(UPDATED_INDEX)
             .resultStatus(UPDATED_RESULT_STATUS)
             .restrictedKeywords(UPDATED_RESTRICTED_KEYWORDS)
-            .processed(UPDATED_PROCESSED);
+            .processed(UPDATED_PROCESSED)
+            .fileName(UPDATED_FILE_NAME)
+            .exportPath(UPDATED_EXPORT_PATH);
 
         restPrintJobPageMockMvc.perform(put("/api/print-job-pages")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -231,6 +247,8 @@ public class PrintJobPageResourceIntTest {
         assertThat(testPrintJobPage.getResultStatus()).isEqualTo(UPDATED_RESULT_STATUS);
         assertThat(testPrintJobPage.getRestrictedKeywords()).isEqualTo(UPDATED_RESTRICTED_KEYWORDS);
         assertThat(testPrintJobPage.isProcessed()).isEqualTo(UPDATED_PROCESSED);
+        assertThat(testPrintJobPage.getFileName()).isEqualTo(UPDATED_FILE_NAME);
+        assertThat(testPrintJobPage.getExportPath()).isEqualTo(UPDATED_EXPORT_PATH);
     }
 
     @Test

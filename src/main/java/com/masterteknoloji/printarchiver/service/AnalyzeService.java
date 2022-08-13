@@ -101,8 +101,11 @@ public class AnalyzeService {
 		printJobPage.setProcessed(true);
 		printJobPage.setContent(result);
 		printJobPage.setResultStatus(ResultStatus.SAFETY);
+		printJobPage.setFileName(file.getName());
+		String exportPath = applicationProperties.getExportDirectory()+"\\"+file.getName()+".txt";
+		printJobPage.setExportPath(exportPath);
 		
-		BufferedWriter writer = new BufferedWriter(new FileWriter(applicationProperties.getExportDirectory()+"\\"+file.getName()+".txt"));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(exportPath));
 	    writer.write(result);
 	    writer.close();
 		

@@ -21,6 +21,8 @@
             "resultStatus": "Result Status",
             "restrictedKeywords": "Restricted Keywords",
             "processed": "Processed",
+            "fileName": "File Name",
+            "exportPath": "Export Path",
             "job": "Job"
         }
     }

@@ -25,6 +25,8 @@
                     <th jh-sort-by="resultStatus"><span data-translate="printarchiverApp.printJobPage.resultStatus">Result Status</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="restrictedKeywords"><span data-translate="printarchiverApp.printJobPage.restrictedKeywords">Restricted Keywords</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="processed"><span data-translate="printarchiverApp.printJobPage.processed">Processed</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fileName"><span data-translate="printarchiverApp.printJobPage.fileName">File Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="exportPath"><span data-translate="printarchiverApp.printJobPage.exportPath">Export Path</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="job.id"><span data-translate="printarchiverApp.printJobPage.job">Job</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -38,6 +40,8 @@
                     <td data-translate="{{'printarchiverApp.ResultStatus.' + printJobPage.resultStatus}}">{{printJobPage.resultStatus}}</td>
                     <td>{{printJobPage.restrictedKeywords}}</td>
                     <td>{{printJobPage.processed}}</td>
+                    <td>{{printJobPage.fileName}}</td>
+                    <td>{{printJobPage.exportPath}}</td>
                     <td>
                         <a ui-sref="print-job-detail({id:printJobPage.job.id})">{{printJobPage.job.id}}</a>
                     </td>

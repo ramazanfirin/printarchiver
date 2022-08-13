@@ -33,6 +33,14 @@
         {
             "fieldName": "processed",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fileName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "exportPath",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20220811100327",

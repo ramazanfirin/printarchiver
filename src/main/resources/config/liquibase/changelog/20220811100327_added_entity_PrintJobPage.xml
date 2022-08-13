@@ -46,6 +46,14 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="file_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="export_path" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="job_id" type="bigint">
                 <constraints nullable="true" />
             </column>

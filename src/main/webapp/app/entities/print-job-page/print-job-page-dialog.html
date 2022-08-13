@@ -49,6 +49,18 @@
                 <input type="checkbox" name="processed" id="field_processed"
                           ng-model="vm.printJobPage.processed"/>
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJobPage.fileName" for="field_fileName">File Name</label>
+            <input type="text" class="form-control" name="fileName" id="field_fileName"
+                    ng-model="vm.printJobPage.fileName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="printarchiverApp.printJobPage.exportPath" for="field_exportPath">Export Path</label>
+            <input type="text" class="form-control" name="exportPath" id="field_exportPath"
+                    ng-model="vm.printJobPage.exportPath"
+                    />
+        </div>
 
         <div class="form-group">
             <label data-translate="printarchiverApp.printJobPage.job" for="field_job">Job</label>

@@ -136,7 +136,9 @@ public class AnalyzeServiceIntTest {
     	//jobImportService = new JobImportService(printJobRepository,printJobService);
     	prepareJobDummyData();
     	analyzeService = new AnalyzeService(printJobRepository, printJobService, applicationProperties, ocrService, restrictedKeywordRepository, printJobPageRepository);
-    			}
+    	printJobPageRepository.deleteAll();
+    	printJobRepository.deleteAll();
+    }
 
     @After
     public void deleteFiles() throws IOException {
@@ -174,11 +176,11 @@ public class AnalyzeServiceIntTest {
     	assertThat(printJobPage2.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJobPage2.getRestrictedKeywords()).isNull();
     	
-    	File file = new File(applicationProperties.getExportDirectory()+"\\"+printJobPage.getPagePath()+".txt");
+    	File file = new File(printJobPage.getExportPath());
     	assertThat(file.exists()).isTrue();
     	
-    	String str = str = new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
-    	System.out.println(str);
+    	String str =  new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
+    	assertThat(str).isNotNull();
     
     }
     @Test
@@ -217,6 +219,11 @@ public class AnalyzeServiceIntTest {
     	assertThat(printJobPage2.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJobPage2.getRestrictedKeywords()).isNull();
     
+    	File file = new File(printJobPage.getExportPath());
+    	assertThat(file.exists()).isTrue();
+    	String str =  new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
+    	assertThat(str).isNotNull();
+    	assertThat(str.contains("Mehaba")).isTrue();
     }
 
     @Test

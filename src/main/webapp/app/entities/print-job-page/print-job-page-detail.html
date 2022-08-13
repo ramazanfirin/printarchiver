@@ -28,6 +28,14 @@
         <dd>
             <span>{{vm.printJobPage.processed}}</span>
         </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.fileName">File Name</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.fileName}}</span>
+        </dd>
+        <dt><span data-translate="printarchiverApp.printJobPage.exportPath">Export Path</span></dt>
+        <dd>
+            <span>{{vm.printJobPage.exportPath}}</span>
+        </dd>
         <dt><span data-translate="printarchiverApp.printJobPage.job">Job</span></dt>
         <dd>
             <a ui-sref="print-job-detail({id:vm.printJobPage.job.id})">{{vm.printJobPage.job.id}}</a>

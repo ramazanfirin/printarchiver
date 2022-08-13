@@ -22,6 +22,7 @@ import com.masterteknoloji.printarchiver.PrintarchiverApp;
 import com.masterteknoloji.printarchiver.domain.PrintJob;
 import com.masterteknoloji.printarchiver.domain.User;
 import com.masterteknoloji.printarchiver.domain.enumeration.ProcessStatus;
+import com.masterteknoloji.printarchiver.domain.enumeration.ResultStatus;
 import com.masterteknoloji.printarchiver.repository.PrintJobRepository;
 
 /**
@@ -47,10 +48,10 @@ public class ImportServiceIntTest {
     List jobList; 
     
     
-    final String ARCHIVE_PATH = "2022/08/07/15";
+    final String ARCHIVE_PATH = "2022/08/12/09";
     final String CLIENT_MACHINE = "DESKTOP-VU0HKAQ";
     final String DOCUMENT_NAME = "documentName";
-    final String JOB_UUID = "681f85ab0d6c51e8edcca36c5148f9727612bf31";
+    final String JOB_UUID = "897b2602636453f5cff4977a746dc587cee94af7";
     final String INSERT_DATE = "2022-08-07 15:03:36.0";
     final BigInteger PRINTER_ID = new BigInteger("7");
     final BigInteger PRINTER_JOB_LOG_ID = new BigInteger("0");
@@ -79,6 +80,8 @@ public class ImportServiceIntTest {
     public void init() {
     	when(printJobService.findJobs(anyInt())).thenReturn(prepareJobDummyData());
     	jobImportService = new JobImportService(printJobRepository,printJobService);
+    	//printJobRepository.deleteAll();
+    	
     }
 
     @Test
@@ -95,7 +98,7 @@ public class ImportServiceIntTest {
     	assertThat(printJob.getPrintDate()).isNotNull();
     	assertThat(printJob.getPrinterId().longValue()).isEqualTo(PRINTER_ID.longValue());
     	assertThat(printJob.getProcessStatus()).isEqualTo(ProcessStatus.NOT_CHECKED);
-    	assertThat(printJob.getResultStatus()).isNull();
+    	assertThat(printJob.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJob.getUserId().longValue()).isEqualTo(User_ID.longValue());
     }
 
