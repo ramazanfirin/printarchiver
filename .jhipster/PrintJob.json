@@ -15,7 +15,19 @@
             "fieldType": "Long"
         },
         {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "printerId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "printerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pageCount",
             "fieldType": "Long"
         },
         {
