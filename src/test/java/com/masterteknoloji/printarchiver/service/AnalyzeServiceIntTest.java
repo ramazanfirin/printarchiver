@@ -170,11 +170,13 @@ public class AnalyzeServiceIntTest {
     	assertThat(printJobPage.getProcessed()).isTrue();
     	assertThat(printJobPage.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJobPage.getRestrictedKeywords()).isNull();
+    	assertThat(printJobPage.getIndex()).isEqualTo(0);
     
-    	PrintJobPage printJobPage2 = list2.get(0);
+    	PrintJobPage printJobPage2 = list2.get(1);
     	assertThat(printJobPage2.getProcessed()).isTrue();
     	assertThat(printJobPage2.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJobPage2.getRestrictedKeywords()).isNull();
+    	assertThat(printJobPage2.getIndex()).isEqualTo(1);
     	
     	File file = new File(printJobPage.getExportPath());
     	assertThat(file.exists()).isTrue();

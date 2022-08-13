@@ -60,12 +60,14 @@ public class AnalyzeService {
 			
 			File directoryPath = new File(path);
 		    File filesList[] = directoryPath.listFiles();
+		    int index=0;
 			for (int i = 0; i < filesList.length; i++) {
 				File file = filesList[i];
 				if(!file.getName().startsWith("page") || !file.getName().contains("bh3000"))
 					continue;
 				String result = ocrService.analyze(file);
-				PrintJobPage printJobPage = createPrintJob(printJob, file, result);
+				PrintJobPage printJobPage = createPrintJob(printJob, file, result,index);
+				index++;
 				printJobPage = decision(printJobPage);
 				if(printJobPage.getResultStatus().equals(ResultStatus.NOT_SAFETY)) {
 					printJob.setResultStatus(ResultStatus.NOT_SAFETY);
@@ -94,7 +96,7 @@ public class AnalyzeService {
 	}
 	
 	
-	private PrintJobPage createPrintJob(PrintJob printJob,File file,String result) throws IOException {
+	private PrintJobPage createPrintJob(PrintJob printJob,File file,String result,int index) throws IOException {
 		PrintJobPage printJobPage = new PrintJobPage();
 		printJobPage.setJob(printJob);
 		printJobPage.setPagePath(file.getAbsolutePath());
@@ -104,6 +106,7 @@ public class AnalyzeService {
 		printJobPage.setFileName(file.getName());
 		String exportPath = applicationProperties.getExportDirectory()+"\\"+file.getName()+".txt";
 		printJobPage.setExportPath(exportPath);
+		printJobPage.setIndex(Long.valueOf(index));
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(exportPath));
 	    writer.write(result);
