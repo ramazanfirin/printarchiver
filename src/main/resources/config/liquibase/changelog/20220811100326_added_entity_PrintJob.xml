@@ -34,7 +34,19 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="user_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="printer_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="printer_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="page_count" type="bigint">
                 <constraints nullable="true" />
             </column>
 

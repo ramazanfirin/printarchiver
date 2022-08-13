@@ -22,7 +22,10 @@
                     <th jh-sort-by="printerJobLogId"><span data-translate="printarchiverApp.printJob.printerJobLogId">Printer Job Log Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="printDate"><span data-translate="printarchiverApp.printJob.printDate">Print Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="userId"><span data-translate="printarchiverApp.printJob.userId">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userName"><span data-translate="printarchiverApp.printJob.userName">User Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="printerId"><span data-translate="printarchiverApp.printJob.printerId">Printer Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="printerName"><span data-translate="printarchiverApp.printJob.printerName">Printer Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pageCount"><span data-translate="printarchiverApp.printJob.pageCount">Page Count</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="documentName"><span data-translate="printarchiverApp.printJob.documentName">Document Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="clientMachine"><span data-translate="printarchiverApp.printJob.clientMachine">Client Machine</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="jobId"><span data-translate="printarchiverApp.printJob.jobId">Job Id</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -38,7 +41,10 @@
                     <td>{{printJob.printerJobLogId}}</td>
                         <td>{{printJob.printDate | date:'mediumDate'}}</td>
                     <td>{{printJob.userId}}</td>
+                    <td>{{printJob.userName}}</td>
                     <td>{{printJob.printerId}}</td>
+                    <td>{{printJob.printerName}}</td>
+                    <td>{{printJob.pageCount}}</td>
                     <td>{{printJob.documentName}}</td>
                     <td>{{printJob.clientMachine}}</td>
                     <td>{{printJob.jobId}}</td>

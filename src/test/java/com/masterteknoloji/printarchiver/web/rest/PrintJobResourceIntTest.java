@@ -51,8 +51,17 @@ public class PrintJobResourceIntTest {
     private static final Long DEFAULT_USER_ID = 1L;
     private static final Long UPDATED_USER_ID = 2L;
 
+    private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
+
     private static final Long DEFAULT_PRINTER_ID = 1L;
     private static final Long UPDATED_PRINTER_ID = 2L;
+
+    private static final String DEFAULT_PRINTER_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_PRINTER_NAME = "BBBBBBBBBB";
+
+    private static final Long DEFAULT_PAGE_COUNT = 1L;
+    private static final Long UPDATED_PAGE_COUNT = 2L;
 
     private static final String DEFAULT_DOCUMENT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_DOCUMENT_NAME = "BBBBBBBBBB";
@@ -113,7 +122,10 @@ public class PrintJobResourceIntTest {
             .printerJobLogId(DEFAULT_PRINTER_JOB_LOG_ID)
             .printDate(DEFAULT_PRINT_DATE)
             .userId(DEFAULT_USER_ID)
+            .userName(DEFAULT_USER_NAME)
             .printerId(DEFAULT_PRINTER_ID)
+            .printerName(DEFAULT_PRINTER_NAME)
+            .pageCount(DEFAULT_PAGE_COUNT)
             .documentName(DEFAULT_DOCUMENT_NAME)
             .clientMachine(DEFAULT_CLIENT_MACHINE)
             .jobId(DEFAULT_JOB_ID)
@@ -146,7 +158,10 @@ public class PrintJobResourceIntTest {
         assertThat(testPrintJob.getPrinterJobLogId()).isEqualTo(DEFAULT_PRINTER_JOB_LOG_ID);
         assertThat(testPrintJob.getPrintDate()).isEqualTo(DEFAULT_PRINT_DATE);
         assertThat(testPrintJob.getUserId()).isEqualTo(DEFAULT_USER_ID);
+        assertThat(testPrintJob.getUserName()).isEqualTo(DEFAULT_USER_NAME);
         assertThat(testPrintJob.getPrinterId()).isEqualTo(DEFAULT_PRINTER_ID);
+        assertThat(testPrintJob.getPrinterName()).isEqualTo(DEFAULT_PRINTER_NAME);
+        assertThat(testPrintJob.getPageCount()).isEqualTo(DEFAULT_PAGE_COUNT);
         assertThat(testPrintJob.getDocumentName()).isEqualTo(DEFAULT_DOCUMENT_NAME);
         assertThat(testPrintJob.getClientMachine()).isEqualTo(DEFAULT_CLIENT_MACHINE);
         assertThat(testPrintJob.getJobId()).isEqualTo(DEFAULT_JOB_ID);
@@ -188,7 +203,10 @@ public class PrintJobResourceIntTest {
             .andExpect(jsonPath("$.[*].printerJobLogId").value(hasItem(DEFAULT_PRINTER_JOB_LOG_ID.intValue())))
             .andExpect(jsonPath("$.[*].printDate").value(hasItem(DEFAULT_PRINT_DATE.toString())))
             .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.intValue())))
+            .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME.toString())))
             .andExpect(jsonPath("$.[*].printerId").value(hasItem(DEFAULT_PRINTER_ID.intValue())))
+            .andExpect(jsonPath("$.[*].printerName").value(hasItem(DEFAULT_PRINTER_NAME.toString())))
+            .andExpect(jsonPath("$.[*].pageCount").value(hasItem(DEFAULT_PAGE_COUNT.intValue())))
             .andExpect(jsonPath("$.[*].documentName").value(hasItem(DEFAULT_DOCUMENT_NAME.toString())))
             .andExpect(jsonPath("$.[*].clientMachine").value(hasItem(DEFAULT_CLIENT_MACHINE.toString())))
             .andExpect(jsonPath("$.[*].jobId").value(hasItem(DEFAULT_JOB_ID.toString())))
@@ -211,7 +229,10 @@ public class PrintJobResourceIntTest {
             .andExpect(jsonPath("$.printerJobLogId").value(DEFAULT_PRINTER_JOB_LOG_ID.intValue()))
             .andExpect(jsonPath("$.printDate").value(DEFAULT_PRINT_DATE.toString()))
             .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.intValue()))
+            .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME.toString()))
             .andExpect(jsonPath("$.printerId").value(DEFAULT_PRINTER_ID.intValue()))
+            .andExpect(jsonPath("$.printerName").value(DEFAULT_PRINTER_NAME.toString()))
+            .andExpect(jsonPath("$.pageCount").value(DEFAULT_PAGE_COUNT.intValue()))
             .andExpect(jsonPath("$.documentName").value(DEFAULT_DOCUMENT_NAME.toString()))
             .andExpect(jsonPath("$.clientMachine").value(DEFAULT_CLIENT_MACHINE.toString()))
             .andExpect(jsonPath("$.jobId").value(DEFAULT_JOB_ID.toString()))
@@ -243,7 +264,10 @@ public class PrintJobResourceIntTest {
             .printerJobLogId(UPDATED_PRINTER_JOB_LOG_ID)
             .printDate(UPDATED_PRINT_DATE)
             .userId(UPDATED_USER_ID)
+            .userName(UPDATED_USER_NAME)
             .printerId(UPDATED_PRINTER_ID)
+            .printerName(UPDATED_PRINTER_NAME)
+            .pageCount(UPDATED_PAGE_COUNT)
             .documentName(UPDATED_DOCUMENT_NAME)
             .clientMachine(UPDATED_CLIENT_MACHINE)
             .jobId(UPDATED_JOB_ID)
@@ -263,7 +287,10 @@ public class PrintJobResourceIntTest {
         assertThat(testPrintJob.getPrinterJobLogId()).isEqualTo(UPDATED_PRINTER_JOB_LOG_ID);
         assertThat(testPrintJob.getPrintDate()).isEqualTo(UPDATED_PRINT_DATE);
         assertThat(testPrintJob.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testPrintJob.getUserName()).isEqualTo(UPDATED_USER_NAME);
         assertThat(testPrintJob.getPrinterId()).isEqualTo(UPDATED_PRINTER_ID);
+        assertThat(testPrintJob.getPrinterName()).isEqualTo(UPDATED_PRINTER_NAME);
+        assertThat(testPrintJob.getPageCount()).isEqualTo(UPDATED_PAGE_COUNT);
         assertThat(testPrintJob.getDocumentName()).isEqualTo(UPDATED_DOCUMENT_NAME);
         assertThat(testPrintJob.getClientMachine()).isEqualTo(UPDATED_CLIENT_MACHINE);
         assertThat(testPrintJob.getJobId()).isEqualTo(UPDATED_JOB_ID);

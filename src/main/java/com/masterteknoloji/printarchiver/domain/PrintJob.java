@@ -36,8 +36,17 @@ public class PrintJob implements Serializable {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "user_name")
+    private String userName;
+
     @Column(name = "printer_id")
     private Long printerId;
+
+    @Column(name = "printer_name")
+    private String printerName;
+
+    @Column(name = "page_count")
+    private Long pageCount;
 
     @Column(name = "document_name")
     private String documentName;
@@ -107,6 +116,19 @@ public class PrintJob implements Serializable {
         this.userId = userId;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public PrintJob userName(String userName) {
+        this.userName = userName;
+        return this;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public Long getPrinterId() {
         return printerId;
     }
@@ -118,6 +140,32 @@ public class PrintJob implements Serializable {
 
     public void setPrinterId(Long printerId) {
         this.printerId = printerId;
+    }
+
+    public String getPrinterName() {
+        return printerName;
+    }
+
+    public PrintJob printerName(String printerName) {
+        this.printerName = printerName;
+        return this;
+    }
+
+    public void setPrinterName(String printerName) {
+        this.printerName = printerName;
+    }
+
+    public Long getPageCount() {
+        return pageCount;
+    }
+
+    public PrintJob pageCount(Long pageCount) {
+        this.pageCount = pageCount;
+        return this;
+    }
+
+    public void setPageCount(Long pageCount) {
+        this.pageCount = pageCount;
     }
 
     public String getDocumentName() {
@@ -226,7 +274,10 @@ public class PrintJob implements Serializable {
             ", printerJobLogId=" + getPrinterJobLogId() +
             ", printDate='" + getPrintDate() + "'" +
             ", userId=" + getUserId() +
+            ", userName='" + getUserName() + "'" +
             ", printerId=" + getPrinterId() +
+            ", printerName='" + getPrinterName() + "'" +
+            ", pageCount=" + getPageCount() +
             ", documentName='" + getDocumentName() + "'" +
             ", clientMachine='" + getClientMachine() + "'" +
             ", jobId='" + getJobId() + "'" +

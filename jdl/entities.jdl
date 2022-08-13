@@ -2,7 +2,10 @@ entity PrintJob{
 	printerJobLogId Long
 	printDate LocalDate
 	userId Long
+	userName String
 	printerId Long
+	printerName String
+	pageCount Long
 	documentName String
 	clientMachine String
 	jobId String

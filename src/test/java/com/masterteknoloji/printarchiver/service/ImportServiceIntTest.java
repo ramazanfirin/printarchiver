@@ -56,6 +56,8 @@ public class ImportServiceIntTest {
     final BigInteger PRINTER_ID = new BigInteger("7");
     final BigInteger PRINTER_JOB_LOG_ID = new BigInteger("0");
     final BigInteger User_ID = new BigInteger("10");
+    final BigInteger PAGE_COUNT = new BigInteger("2");
+    
     
     private List prepareJobDummyData() {
     	jobList = new ArrayList();
@@ -69,7 +71,7 @@ public class ImportServiceIntTest {
     	object[7] = PRINTER_ID;
     	object[0] = PRINTER_JOB_LOG_ID;
     	object[3] = User_ID;
-    	
+    	object[12] = PAGE_COUNT;
     	jobList.add(object);
     	return jobList;
     			
@@ -100,6 +102,7 @@ public class ImportServiceIntTest {
     	assertThat(printJob.getProcessStatus()).isEqualTo(ProcessStatus.NOT_CHECKED);
     	assertThat(printJob.getResultStatus()).isEqualTo(ResultStatus.SAFETY);
     	assertThat(printJob.getUserId().longValue()).isEqualTo(User_ID.longValue());
+    	assertThat(printJob.getPageCount().longValue()).isEqualTo(PAGE_COUNT.longValue());
     }
 
    

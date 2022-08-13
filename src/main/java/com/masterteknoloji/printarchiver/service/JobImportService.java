@@ -52,6 +52,7 @@ public class JobImportService {
 			printJob.setPrinterJobLogId(getLong(object[0].toString()));
 			printJob.setProcessStatus(ProcessStatus.NOT_CHECKED);
 			printJob.setUserId(getLong(object[3].toString()));
+			printJob.setPageCount(getLong(object[12].toString()));
 			
 			printJobRepository.save(printJob);
 		}
