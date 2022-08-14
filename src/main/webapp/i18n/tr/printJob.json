@@ -2,9 +2,9 @@
     "printarchiverApp": {
         "printJob" : {
             "home": {
-                "title": "Print Jobs",
-                "createLabel": "Create a new Print Job",
-                "createOrEditLabel": "Create or edit a Print Job"
+                "title": "Printer Görevi",
+                "createLabel": "Printer Görevi Oluştur",
+                "createOrEditLabel": "Printer Görevi Düzenlen"
             },
             "created": "A new Print Job is created with identifier {{ param }}",
             "updated": "A Print Job is updated with identifier {{ param }}",
@@ -13,21 +13,22 @@
                 "question": "Are you sure you want to delete Print Job {{ id }}?"
             },
             "detail": {
-                "title": "Print Job"
+                "title": "Print Görevi"
             },
             "printerJobLogId": "Printer Job Log Id",
-            "printDate": "Print Date",
-            "userId": "User Id",
-            "userName": "User Name",
+            "printDate": "Print Tarihi",
+            "userId": "Kullanıcı Id",
+            "userName": "Kullanıcı İsmi",
             "printerId": "Printer Id",
-            "printerName": "Printer Name",
-            "pageCount": "Page Count",
-            "documentName": "Document Name",
-            "clientMachine": "Client Machine",
+            "printerName": "Printer İsmi",
+            "pageCount": "Sayfa sayısıt",
+            "documentName": "Döküman İsmi",
+            "clientMachine": "Bilgisayar İsmi",
             "jobId": "Job Id",
-            "archivePath": "Archive Path",
-            "processStatus": "Process Status",
-            "resultStatus": "Result Status"
+            "archivePath": "Arşiv Yolu",
+            "processStatus": "İşlem Durumu",
+            "resultStatus": "Sonuç",
+            "showOnlyUnsafePage":"Sadece Güvenli Olmayan Sayfaları Göster"
         }
     }
 }

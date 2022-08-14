@@ -2,9 +2,9 @@
     "printarchiverApp": {
         "restrictedKeyword" : {
             "home": {
-                "title": "Restricted Keywords",
-                "createLabel": "Create a new Restricted Keyword",
-                "createOrEditLabel": "Create or edit a Restricted Keyword"
+                "title": "Yasaklı Kelimeler",
+                "createLabel": "Yasaklı Kelime Oluştur",
+                "createOrEditLabel": "Yasaklı Kelime Düzenle"
             },
             "created": "A new Restricted Keyword is created with identifier {{ param }}",
             "updated": "A Restricted Keyword is updated with identifier {{ param }}",
@@ -13,10 +13,10 @@
                 "question": "Are you sure you want to delete Restricted Keyword {{ id }}?"
             },
             "detail": {
-                "title": "Restricted Keyword"
+                "title": "Yasaklı Kelimeler"
             },
-            "keyword": "Keyword",
-            "active": "Active"
+            "keyword": "Kelime",
+            "active": "Aktif"
         }
     }
 }

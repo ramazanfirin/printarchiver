@@ -2,12 +2,16 @@ package com.masterteknoloji.printarchiver.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.masterteknoloji.printarchiver.domain.PrintJobPage;
-
+import com.masterteknoloji.printarchiver.domain.enumeration.ResultStatus;
 import com.masterteknoloji.printarchiver.repository.PrintJobPageRepository;
 import com.masterteknoloji.printarchiver.web.rest.errors.BadRequestAlertException;
 import com.masterteknoloji.printarchiver.web.rest.util.HeaderUtil;
 import com.masterteknoloji.printarchiver.web.rest.util.PaginationUtil;
+import com.masterteknoloji.printarchiver.web.rest.vm.StringVM;
+
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -17,9 +21,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -123,5 +132,56 @@ public class PrintJobPageResource {
         log.debug("REST request to delete PrintJobPage : {}", id);
         printJobPageRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    
+    @GetMapping("/print-job-pages/getByJobId")
+    @Timed
+    public List<PrintJobPage> getByJobId(@RequestParam Long id) {
+        log.debug("REST request to get a page of PrintJobPages");
+        List<PrintJobPage> result = printJobPageRepository.findByJobId(id);
+        return result;
+    }
+    
+    @GetMapping(value = "/print-job-pages/image")
+    public @ResponseBody byte[] getImage(@RequestParam Long id) throws IOException {
+        
+    	PrintJobPage printJobPage = printJobPageRepository.findOne(id);
+    	File initialFile = new File(printJobPage.getPagePath());
+        InputStream targetStream = new FileInputStream(initialFile);
+        
+        return IOUtils.toByteArray(targetStream);
+    }
+    
+    @GetMapping("/print-job-pages/getContent")
+    @Timed
+    public StringVM getContent(@RequestParam Long id) throws IOException {
+        log.debug("REST request to get a page of PrintJobPages");
+        String result = "";
+        PrintJobPage page = printJobPageRepository.findOne(id);
+        if(page != null) {
+        	File file = new File(page.getExportPath());
+        	result =  new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));		
+        }
+        
+        result = result.toLowerCase();
+        result = result.replace("\n", "<br>");
+        if(page.getResultStatus() == ResultStatus.NOT_SAFETY) {
+        	String restrictedKeyword = page.getRestrictedKeywords();
+        	String[] list = restrictedKeyword.split(",");
+        	for (int i = 0; i < list.length; i++) {
+             	result = boldRestrictedKeywords(result, list[i]);
+                	
+			}
+        }
+        
+        
+        StringVM vm = new StringVM();
+        vm.setValue(result);
+        return vm;
+    }
+    
+    public String boldRestrictedKeywords(String content, String keyword) {
+    	 String result = content.replaceAll(keyword.toLowerCase(), "<b>"+keyword.toLowerCase()+"</b>");
+    	 return result;
     }
 }

@@ -1,10 +1,19 @@
 package com.masterteknoloji.printarchiver.web.rest;
 
-import com.masterteknoloji.printarchiver.PrintarchiverApp;
+import static com.masterteknoloji.printarchiver.web.rest.TestUtil.createFormattingConversionService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.masterteknoloji.printarchiver.domain.PrintJobPage;
-import com.masterteknoloji.printarchiver.repository.PrintJobPageRepository;
-import com.masterteknoloji.printarchiver.web.rest.errors.ExceptionTranslator;
+import java.util.List;
+
+import javax.persistence.EntityManager;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,16 +29,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.List;
-
-import static com.masterteknoloji.printarchiver.web.rest.TestUtil.createFormattingConversionService;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import com.masterteknoloji.printarchiver.PrintarchiverApp;
+import com.masterteknoloji.printarchiver.domain.PrintJob;
+import com.masterteknoloji.printarchiver.domain.PrintJobPage;
 import com.masterteknoloji.printarchiver.domain.enumeration.ResultStatus;
+import com.masterteknoloji.printarchiver.repository.PrintJobPageRepository;
+import com.masterteknoloji.printarchiver.repository.PrintJobRepository;
+import com.masterteknoloji.printarchiver.web.rest.errors.ExceptionTranslator;
 /**
  * Test class for the PrintJobPageResource REST controller.
  *
@@ -65,6 +71,9 @@ public class PrintJobPageResourceIntTest {
 
     @Autowired
     private PrintJobPageRepository printJobPageRepository;
+    
+    @Autowired
+    private PrintJobRepository printJobRepository;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -182,6 +191,30 @@ public class PrintJobPageResourceIntTest {
             .andExpect(jsonPath("$.[*].exportPath").value(hasItem(DEFAULT_EXPORT_PATH.toString())));
     }
 
+    @Test
+    @Transactional
+    public void getByJobId() throws Exception {
+        // Initialize the database
+    	PrintJob printJob = new PrintJob();
+    	printJobRepository.save(printJob);
+    	printJobPage.setJob(printJob);
+        printJobPageRepository.saveAndFlush(printJobPage);
+
+        // Get all the printJobPageList
+        restPrintJobPageMockMvc.perform(get("/api/print-job-pages/getByJobId/"+printJob.getId()))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(printJobPage.getId().intValue())))
+            .andExpect(jsonPath("$.[*].pageName").value(hasItem(DEFAULT_PAGE_NAME.toString())))
+            .andExpect(jsonPath("$.[*].pagePath").value(hasItem(DEFAULT_PAGE_PATH.toString())))
+            .andExpect(jsonPath("$.[*].index").value(hasItem(DEFAULT_INDEX.intValue())))
+            .andExpect(jsonPath("$.[*].resultStatus").value(hasItem(DEFAULT_RESULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].restrictedKeywords").value(hasItem(DEFAULT_RESTRICTED_KEYWORDS.toString())))
+            .andExpect(jsonPath("$.[*].processed").value(hasItem(DEFAULT_PROCESSED.booleanValue())))
+            .andExpect(jsonPath("$.[*].fileName").value(hasItem(DEFAULT_FILE_NAME.toString())))
+            .andExpect(jsonPath("$.[*].exportPath").value(hasItem(DEFAULT_EXPORT_PATH.toString())));
+    }
+    
     @Test
     @Transactional
     public void getPrintJobPage() throws Exception {

@@ -2,8 +2,8 @@
     "printarchiverApp": {
         "ProcessStatus" : {
             "null": "",
-            "NOT_CHECKED": "NOT_CHECKED",
-            "CHECKED": "CHECKED"
+            "NOT_CHECKED": "KONTROL_EDILMEDI",
+            "CHECKED": "KONTROL_EDILDI"
         }
     }
 }

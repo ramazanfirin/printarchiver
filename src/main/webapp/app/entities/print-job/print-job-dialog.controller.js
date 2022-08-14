@@ -15,6 +15,8 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
+        vm.previous= previous;
+		vm.next =next;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -48,5 +50,13 @@
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;
         }
+        
+        function previous(){
+	
+		}
+		
+		function next(){
+			
+		}
     }
 })();

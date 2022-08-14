@@ -92,7 +92,9 @@
             "edit": "Düzenle",
             "open": "Aç",
             "save": "Kaydet",
-            "view": "Görüntüle"
+            "view": "Görüntüle",
+            "previous": "<",
+            "next": ">"
         },
         "detail": {
             "field": "Alan",

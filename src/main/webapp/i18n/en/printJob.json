@@ -27,7 +27,8 @@
             "jobId": "Job Id",
             "archivePath": "Archive Path",
             "processStatus": "Process Status",
-            "resultStatus": "Result Status"
+            "resultStatus": "Result Status",
+            "showOnlyUnsafePage":"Show Only Unsafe Pages"
         }
     }
 }

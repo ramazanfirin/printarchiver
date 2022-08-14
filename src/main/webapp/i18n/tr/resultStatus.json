@@ -2,8 +2,8 @@
     "printarchiverApp": {
         "ResultStatus" : {
             "null": "",
-            "SAFETY": "SAFETY",
-            "NOT_SAFETY": "NOT_SAFETY"
+            "SAFETY": "GUVENLI",
+            "NOT_SAFETY": "GUVENLI_DEGIL"
         }
     }
 }

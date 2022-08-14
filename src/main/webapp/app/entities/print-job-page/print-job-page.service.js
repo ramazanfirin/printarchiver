@@ -11,6 +11,8 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'findByJobId': { method: 'GET', isArray: true, url: 'api/print-job-pages/getByJobId'},
+            'findContext': { method: 'GET', isArray: false, url: 'api/print-job-pages/getContent'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

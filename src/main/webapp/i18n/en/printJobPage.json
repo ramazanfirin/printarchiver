@@ -13,7 +13,8 @@
                 "question": "Are you sure you want to delete Print Job Page {{ id }}?"
             },
             "detail": {
-                "title": "Print Job Page"
+                "title": "Print Job Page",
+                "pageIndex": "Page No"
             },
             "pageName": "Page Name",
             "pagePath": "Page Path",

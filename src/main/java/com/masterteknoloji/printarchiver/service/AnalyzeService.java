@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,7 +51,7 @@ public class AnalyzeService {
 		this.printJobPageRepository = printJobPageRepository;
 	}
 	
-	//@Scheduled(fixedDelay = 15000)
+	@Scheduled(fixedDelay = 15000)
 	public void analyze() throws Exception {
 		List<PrintJob> list = printJobRepository.findUnrocessedJobs();
 		
@@ -60,6 +61,9 @@ public class AnalyzeService {
 			
 			File directoryPath = new File(path);
 		    File filesList[] = directoryPath.listFiles();
+		    if(filesList == null)
+		    	continue;
+		    
 		    int index=0;
 			for (int i = 0; i < filesList.length; i++) {
 				File file = filesList[i];
@@ -88,7 +92,7 @@ public class AnalyzeService {
 		List<RestrictedKeyword> list = restrictedKeywordRepository.findAll();
 		for (RestrictedKeyword restrictedKeyword : list) {
 			if(printJobPage.getContent().toLowerCase().contains(restrictedKeyword.getKeyword().toLowerCase())){
-				printJobPage.setRestrictedKeywords(printJobPage.getRestrictedKeywords()+"," + restrictedKeyword);
+				printJobPage.setRestrictedKeywords(printJobPage.getRestrictedKeywords()+"," + restrictedKeyword.getKeyword());
 				printJobPage.setResultStatus(ResultStatus.NOT_SAFETY);
 			}
 		}
@@ -104,7 +108,14 @@ public class AnalyzeService {
 		printJobPage.setContent(result);
 		printJobPage.setResultStatus(ResultStatus.SAFETY);
 		printJobPage.setFileName(file.getName());
-		String exportPath = applicationProperties.getExportDirectory()+"\\"+file.getName()+".txt";
+		
+		String directory = applicationProperties.getExportDirectory()+"\\"+printJob.getJobId();
+		File folder = new File(directory);
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+
+		String exportPath = directory+"\\"+file.getName()+".txt";
 		printJobPage.setExportPath(exportPath);
 		printJobPage.setIndex(Long.valueOf(index));
 		

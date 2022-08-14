@@ -32,7 +32,7 @@ public class JobImportService {
 		this.printJobService = printJobService;
 	}
 	
-	//@Scheduled(fixedDelay = 15000)
+	@Scheduled(fixedDelay = 15000)
 	public void getJobList() throws ParseException {
 		List<Object[]> list = printJobService.findJobs(5);
 		
