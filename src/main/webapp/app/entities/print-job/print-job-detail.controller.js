@@ -22,6 +22,7 @@
 		vm.next =next;
 		vm.pageIndex;
 		vm.showOnlyUnsafePage=true;
+		vm.zoom = zoom;
 		 
 		function findByJob() {
             PrintJobPage.findByJobId({
@@ -101,6 +102,18 @@
 		function getContentOfPage(){
 			vm.selectedPrintJobPage = vm.printJobPages[vm.pageIndex];
 		    findContext(vm.selectedPrintJobPage.id);	
+		}
+
+
+		function zoom() {
+			var imageId = document.getElementById('view');
+			if (imageId.style.width == "300px") {
+				imageId.style.width = "600px";
+				imageId.style.height = "800px";
+			} else {
+				imageId.style.width = "300px";
+				imageId.style.height = "400px";
+			}
 		}
 
         var unsubscribe = $rootScope.$on('printarchiverApp:printJobUpdate', function(event, result) {

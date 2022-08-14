@@ -19,7 +19,7 @@
                           
     <div class="row">
     	<div class="col-xs-4">
-    		<img ng-src="api/print-job-pages/image?id={{vm.selectedPrintJobPage.id}}" alt="Description" width="300px" height="420px"/>
+    		<img id="view" ng-click="vm.zoom()" ng-src="api/print-job-pages/image?id={{vm.selectedPrintJobPage.id}}" alt="Description" width="300px" height="420px"/>
     	</div>
     	
     	<div class="col-xs-4">
