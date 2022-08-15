@@ -107,12 +107,12 @@
 
 		function zoom() {
 			var imageId = document.getElementById('view');
-			if (imageId.style.width == "300px") {
+			if (imageId.style.width == "450px") {
 				imageId.style.width = "600px";
 				imageId.style.height = "800px";
 			} else {
-				imageId.style.width = "300px";
-				imageId.style.height = "400px";
+				imageId.style.width = "450px";
+				imageId.style.height = "650px";
 			}
 		}
 

@@ -4,6 +4,6 @@
     angular
         .module('printarchiverApp')
         .constant('paginationConstants', {
-            'itemsPerPage': 20
+            'itemsPerPage': 200
         });
 })();

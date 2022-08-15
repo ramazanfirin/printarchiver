@@ -16,13 +16,13 @@
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.printerJobLogId" for="field_printerJobLogId">Printer Job Log Id</label>
             <input type="number" class="form-control" name="printerJobLogId" id="field_printerJobLogId"
-                    ng-model="vm.printJob.printerJobLogId"
+                    ng-model="vm.printJob.printerJobLogId" readonly
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.printDate" for="field_printDate">Print Date</label>
                 <div class="input-group">
-                    <input id="field_printDate" type="text" class="form-control" name="printDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.printJob.printDate" is-open="vm.datePickerOpenStatus.printDate"
+                    <input id="field_printDate" readonly type="text" class="form-control" name="printDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.printJob.printDate" is-open="vm.datePickerOpenStatus.printDate"
                     />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('printDate')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -31,68 +31,68 @@
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.userId" for="field_userId">User Id</label>
-            <input type="number" class="form-control" name="userId" id="field_userId"
+            <input type="number" readonly  class="form-control" name="userId" id="field_userId"
                     ng-model="vm.printJob.userId"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.userName" for="field_userName">User Name</label>
-            <input type="text" class="form-control" name="userName" id="field_userName"
+            <input type="text" readonly class="form-control" name="userName" id="field_userName"
                     ng-model="vm.printJob.userName"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.printerId" for="field_printerId">Printer Id</label>
-            <input type="number" class="form-control" name="printerId" id="field_printerId"
+            <input type="number" readonly class="form-control" name="printerId" id="field_printerId"
                     ng-model="vm.printJob.printerId"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.printerName" for="field_printerName">Printer Name</label>
-            <input type="text" class="form-control" name="printerName" id="field_printerName"
+            <input type="text" readonly class="form-control" name="printerName" id="field_printerName"
                     ng-model="vm.printJob.printerName"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.pageCount" for="field_pageCount">Page Count</label>
-            <input type="number" class="form-control" name="pageCount" id="field_pageCount"
+            <input type="number" readonly class="form-control" name="pageCount" id="field_pageCount"
                     ng-model="vm.printJob.pageCount"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.documentName" for="field_documentName">Document Name</label>
-            <input type="text" class="form-control" name="documentName" id="field_documentName"
+            <input type="text" readonly class="form-control" name="documentName" id="field_documentName"
                     ng-model="vm.printJob.documentName"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.clientMachine" for="field_clientMachine">Client Machine</label>
-            <input type="text" class="form-control" name="clientMachine" id="field_clientMachine"
+            <input type="text" readonly class="form-control" name="clientMachine" id="field_clientMachine"
                     ng-model="vm.printJob.clientMachine"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.jobId" for="field_jobId">Job Id</label>
-            <input type="text" class="form-control" name="jobId" id="field_jobId"
+            <input type="text" readonly class="form-control" name="jobId" id="field_jobId"
                     ng-model="vm.printJob.jobId"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.archivePath" for="field_archivePath">Archive Path</label>
-            <input type="text" class="form-control" name="archivePath" id="field_archivePath"
+            <input type="text" readonly class="form-control" name="archivePath" id="field_archivePath"
                     ng-model="vm.printJob.archivePath"
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.processStatus" for="field_processStatus">Process Status</label>
-            <select class="form-control" name="processStatus" ng-model="vm.printJob.processStatus" id="field_processStatus">
+            <select class="form-control" readonly name="processStatus" ng-model="vm.printJob.processStatus" id="field_processStatus">
                 <option value="NOT_CHECKED" data-translate="printarchiverApp.ProcessStatus.NOT_CHECKED">NOT_CHECKED</option>
                 <option value="CHECKED" data-translate="printarchiverApp.ProcessStatus.CHECKED">CHECKED</option>
             </select>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="printarchiverApp.printJob.resultStatus" for="field_resultStatus">Result Status</label>
-            <select class="form-control" name="resultStatus" ng-model="vm.printJob.resultStatus" id="field_resultStatus">
+            <select class="form-control" readonly name="resultStatus" ng-model="vm.printJob.resultStatus" id="field_resultStatus">
                 <option value="SAFETY" data-translate="printarchiverApp.ResultStatus.SAFETY">SAFETY</option>
                 <option value="NOT_SAFETY" data-translate="printarchiverApp.ResultStatus.NOT_SAFETY">NOT_SAFETY</option>
             </select>

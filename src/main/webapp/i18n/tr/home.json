@@ -1,6 +1,6 @@
 {
     "home": {
-        "title": "Merhaba, Java Hipster!",
+        "title": "Merhaba, Printer Manager a hoş geldiniz!",
         "subtitle": "Burası Ana Sayfanız",
         "logged": {
             "message": "\"{{username}}\" olarak giriş yaptınız."
